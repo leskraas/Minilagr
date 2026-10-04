@@ -9,3 +9,13 @@ Minilagr is a new, empty repository. It contains only a `README.md` with the pro
 When the stack and structure are in place, update this file with:
 - Commands to build, lint and test, including how to run a single test
 - The high-level architecture (main modules, how data flows between them, and any conventions you can only see by reading several files)
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs are tracked in GitHub Issues for leskraas/Minilagr. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
