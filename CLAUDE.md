@@ -21,7 +21,7 @@ It is built for Norway from day one: BankID signing, Vipps, Norwegian lease temp
 - **Tenant isolation lives in the database.** Every table carries `operator_id`, and Postgres row-level security enforces access. Never rely on application code alone to keep operators apart.
 - **Core tables:** `operators`, `locations`, `units`, `customers`, `leases`, `payments`, `access_codes`.
 - **Lock adapter layer:** every lock vendor sits behind one interface with three operations: create code, change code, block code. Adding a vendor must not touch the rest of the system. The first vendor is chosen with the pilot facility.
-- **MVP integrations:** BankID (Criipto or Signicat), Stripe Connect (first payment, monthly charges, payouts to operators), Vipps ePayment and recurring payments, SMS, transactional e-mail.
+- **MVP integrations:** BankID signing (Idura, formerly Criipto, is the recommended vendor), Stripe Connect (first payment, monthly charges, payouts to operators), SMS, transactional e-mail. Vipps is deferred until after the card flow works.
 
 ## Constraints
 
@@ -32,7 +32,7 @@ It is built for Norway from day one: BankID signing, Vipps, Norwegian lease temp
 
 ## MVP scope
 
-The MVP is done when the pilot facility can rent out a unit from booking to access with no manual help. It covers: locations and units, available units online, BankID signing, card and Vipps, monthly charges, access codes via one lock vendor, a customer page with cancellation, a simple dashboard, and dunning with access blocking. White label for external operators, more lock vendors, waitlist, unit swaps, discount codes, accounting export and staff roles come in version 2. Defer anything outside the MVP.
+The MVP is done when the pilot facility can rent out a unit from booking to access with no manual help. It covers: locations and units, available units online, BankID signing, card payment via Stripe, monthly charges, access codes via one lock vendor, a customer page with cancellation, a simple dashboard, and dunning with access blocking. White label for external operators, more lock vendors, waitlist, unit swaps, discount codes, accounting export and staff roles come in version 2. Defer anything outside the MVP. Open decisions are tracked on the wayfinder map, GitHub issue #1.
 
 ## Agent skills
 
