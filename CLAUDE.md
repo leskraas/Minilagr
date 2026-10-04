@@ -17,6 +17,7 @@ It is built for Norway from day one: BankID signing, Vipps, Norwegian lease temp
 ## Architecture (planned)
 
 - **One Next.js app, three surfaces:** the customer site (branded per operator, on its own subdomain or custom domain), the operator panel (must work well on mobile) and platform admin.
+- **UI:** shadcn/ui with Base UI as the underlying primitives, and a custom visual style (not any existing brand). Operator branding will replace colours and logo later, so keep them as tokens.
 - **Tenant isolation lives in the database.** Every table carries `operator_id`, and Postgres row-level security enforces access. Never rely on application code alone to keep operators apart.
 - **Core tables:** `operators`, `locations`, `units`, `customers`, `leases`, `payments`, `access_codes`.
 - **Lock adapter layer:** every lock vendor sits behind one interface with three operations: create code, change code, block code. Adding a vendor must not touch the rest of the system. The first vendor is chosen with the pilot facility.
